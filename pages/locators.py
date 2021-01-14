@@ -13,3 +13,13 @@ class LoginPageLocators:
     REGISTRATION_PASSWORD = (By.ID, 'id_registration-password1')
     REGISTRATION_CONFIRM_PASSWORD = (By.ID, 'id_registration-password2')
     REGISTRATION_SUBMIT = (By.CSS_SELECTOR, '[name="registration_submit"]')
+
+class ProductPageLocators:
+    REVIEW = (By.ID, 'write_review')
+    ADD_TO_CART = (By.CLASS_NAME, 'btn-add-to-basket')
+    BOOK_NAME = (By.CSS_SELECTOR, '.product_main>h1')
+    BOOK_PRICE = (By.CSS_SELECTOR, '.product_main>.price_color')
+    PRODUCT_ADDED_TO_CART = (By.CSS_SELECTOR, '#messages>.alert-success:nth-child(1) strong')
+    CART_PRICE = (By.CSS_SELECTOR, '.alert-info strong')
+    SUCCESSFUL_ADD_TO_BASKET = (By.CSS_SELECTOR, '#messages>.alert-success:nth-child(1) .alertinner')
+

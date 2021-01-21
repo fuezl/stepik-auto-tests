@@ -19,7 +19,7 @@ class LoginPage(BasePage):
             "Не найдено поле ввода пароля при авторизации"
         assert self.is_element_present(*LoginPageLocators.AUTHORIZATION_FORGOT_PASSWORD), \
             "Не найдена гиперссылка 'Я забыл пароль'"
-        assert self.is_element_present(*LoginPageLocators.AUTHORIZATION_FORGOT_PASSWORD), \
+        assert self.is_element_present(*LoginPageLocators.AUTHORIZATION_SUBMIT), \
             "Не найдена кнопка 'Войти'"
 
     def should_be_register_form(self):
@@ -29,5 +29,15 @@ class LoginPage(BasePage):
             "Не найдено поле ввода пароля при регистрации"
         assert self.is_element_present(*LoginPageLocators.REGISTRATION_CONFIRM_PASSWORD), \
             "Не найдено поле повторного ввода пароля при регистрации"
-        assert self.is_element_present(*LoginPageLocators.AUTHORIZATION_FORGOT_PASSWORD), \
+        assert self.is_element_present(*LoginPageLocators.REGISTRATION_SUBMIT), \
             "Не найдена кнопка 'Зарегистрироваться'"
+
+    def register_new_user(self, email, password):
+        mail = self.browser.find_element(*LoginPageLocators.REGISTRATION_MAIL)
+        mail.send_keys(email)
+        pass1 = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD)
+        pass1.send_keys(password)
+        pass2 = self.browser.find_element(*LoginPageLocators.REGISTRATION_CONFIRM_PASSWORD)
+        pass2.send_keys(password)
+        register = self.browser.find_element(*LoginPageLocators.REGISTRATION_SUBMIT)
+        register.click()

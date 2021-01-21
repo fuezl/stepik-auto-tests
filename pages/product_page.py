@@ -9,7 +9,7 @@ class ProductPage(BasePage):
         add_to_cart.click()
 
     def checking_the_correctness_of_messages(self):
-        self.solve_quiz_and_get_code()
+        # self.solve_quiz_and_get_code()
         assert self.is_element_present(*ProductPageLocators.SUCCESSFUL_ADD_TO_BASKET), \
             "Отсутствует сообщение о добавлении товара в корзину"
         book_name = self.browser.find_element(*ProductPageLocators.BOOK_NAME).text
